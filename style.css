@@ -1,0 +1,1075 @@
+/* ==================================== */
+/* 1. VARIABEL & PENGATURAN DASAR       */
+/* ==================================== */
+:root {
+    --primary-color: #d49d9d;      /* Ungu gelap */
+    --secondary-color: #f7a20c;     /* Oranye terang */
+    --tertiary-color: #0b0c10;      /* Hitam gelap */
+    --background-color: #1a1a2e;    /* Biru keunguan gelap */
+    --text-color: #ffffff;          /* Putih */
+    --card-background: #232946;     /* Biru gelap */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* ==================================== */
+/* GAYA PRELOADER (BARU)                */
+/* ==================================== */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-color);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Tambahkan gaya baru untuk logo preloader */
+.preloader-logo {
+    width: 150px; /* Atur ukuran logo sesuai keinginan Anda */
+    height: auto;
+    margin-bottom: 1.5rem;
+    animation: fadeInLogo 1s ease-in-out;
+}
+
+/* Hapus atau abaikan gaya untuk .preloader-name jika tidak lagi digunakan */
+/* .preloader-name {
+    color: var(--text-color);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    animation: fadeInName 1s ease-in-out;
+} */
+
+.loading-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    animation: bounce 1.2s infinite ease-in-out;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Tambahkan keyframes baru untuk logo */
+@keyframes fadeInLogo {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1);
+    }
+}
+
+/* ... Kode CSS lainnya tetap sama ... */
+
+/* ... Kode CSS lainnya tetap sama ... */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ==================================== */
+/* 2. KOMPONEN UI DASAR                 */
+/* ==================================== */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    box-shadow: 0 4px 15px rgba(106, 13, 173, 0.4);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--tertiary-color);
+}
+
+.btn-tertiary {
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+}
+
+/* ==================================== */
+/* 3. LAYOUT & SEKSI UTAMA              */
+/* ==================================== */
+/* ... Kode CSS lainnya ... */
+
+/* Navigasi Bar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(11, 12, 16, 0.759);
+    padding: 1rem 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    transition: background-color 0.3s ease;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Hapus atau abaikan gaya untuk .navbar .logo jika tidak lagi digunakan */
+/* .navbar .logo {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+} */
+
+/* Gaya baru untuk logo di navbar */
+.logo-container {
+    display: block;
+    height: 65px; /* Atur tinggi container agar logo terlihat rapi */
+    line-height: 1; /* Hapus spasi tambahan */
+}
+
+.navbar-logo {
+    height: 100%;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover {
+    transform: scale(1.05);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* ... Sisa kode CSS tetap sama ... */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* Bagian Hero */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: linear-gradient(45deg, rgba(26, 26, 46, 0.85), rgba(35, 41, 70, 0.85)), url('https://source.unsplash.com/random/1920x1080?code');
+    background-size: cover;
+    background-position: center;
+    animation: background-pan 20s linear infinite alternate;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    z-index: 2;
+    position: relative;
+    width: 100%;
+}
+
+.hero-text-area {
+    flex: 1;
+    text-align: left;
+    max-width: 50%;
+    animation: fadeInLeft 1.5s ease-out forwards;
+    opacity: 0;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    color: var(--text-color);
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    color: #b0b0b0;
+}
+
+.typing-text {
+    color: var(--secondary-color);
+    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 2s steps(20, end), blink-caret 0.75s step-end infinite;
+}
+
+/* Area Gambar di Hero */
+.hero-image-area {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+    position: relative;
+    padding: 2rem;
+}
+
+.hero-profile-pic {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    object-fit: contain;
+    z-index: 3;
+    position: relative;
+    animation: zoomIn 1.5s ease-out forwards, float 5s ease-in-out infinite;
+    opacity: 0;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+}
+
+/* Efek Cahaya di Belakang Foto */
+.hero-image-glow {
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    max-width: 500px;
+    max-height: 600px;
+    background: radial-gradient(circle, var(--primary-color) 0%, rgba(106, 13, 173, 0) 70%);
+    filter: blur(50px);
+    z-index: 1;
+    animation: pulse-glow 4s infinite alternate ease-in-out;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+
+/* Bagian Tentang Saya */
+.about {
+    background-color: var(--card-background);
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 3rem;
+}
+
+.profile-pic {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(106, 13, 173, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(106, 13, 173, 0.8);
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text h2 {
+    text-align: left;
+    margin-bottom: 1.5rem;
+    color: var(--secondary-color);
+}
+
+/* Bagian Keahlian */
+.skills {
+    background-color: var(--background-color);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.skill-category {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.skill-category h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.skill-category h3 i {
+    margin-right: 0.75rem;
+    color: var(--secondary-color);
+}
+
+.skill-item-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px) scale(1.1);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.skill-item i {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+}
+
+.skill-item span {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Bagian Proyek */
+.projects {
+    background-color: var(--background-color);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: var(--card-background);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.project-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.1);
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-info h3 i {
+    margin-right: 0.5rem;
+    color: var(--secondary-color);
+}
+
+.project-tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1rem 0;
+}
+
+.project-tech-list span {
+    background-color: rgba(106, 13, 173, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.project-tech-list span i {
+    margin-right: 0.5rem;
+}
+
+.project-actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+/* Bagian Sertifikat */
+.certificates {
+    background-color: var(--card-background);
+}
+
+.certificate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+.certificate-card {
+    background-color: var(--background-color);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; /* Tambahkan ini agar bisa diklik */
+}
+
+.certificate-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.certificate-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 3px solid var(--secondary-color);
+}
+
+.certificate-info {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.certificate-info h3 {
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.certificate-info p.issuer {
+    font-style: italic;
+    color: #ccc;
+    margin-bottom: 0.5rem;
+}
+
+.certificate-info p.description {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.certificate-info .date {
+    display: block;
+    font-size: 0.8rem;
+    color: #999;
+    font-weight: 600;
+}
+
+.certificate-info .date i {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+
+/* BAGIAN PENGALAMAN */
+.experience {
+    background-color: var(--background-color);
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+.experience-card {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.experience-header h3 {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.experience-header h3 i {
+    margin-right: 0.75rem;
+    color: var(--primary-color);
+}
+
+.experience-date {
+    font-style: italic;
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.experience-company {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.experience-list {
+    list-style: none;
+    padding: 0;
+}
+
+.experience-list li {
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.experience-list li i {
+    color: var(--primary-color);
+    margin-top: 0.3rem;
+    font-size: 1.1rem;
+}
+
+/* Bagian Kontak */
+.contact {
+    text-align: center;
+    background-color: var(--background-color);
+}
+
+.contact p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #ccc;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-item:hover {
+    color: var(--secondary-color);
+    transform: translateY(-5px);
+}
+
+.icon-box {
+    background-color: var(--primary-color);
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.contact-item:hover .icon-box {
+    background-color: var(--secondary-color);
+    transform: rotate(15deg);
+}
+
+.icon-box i {
+    font-size: 2.5rem;
+    color: var(--text-color);
+}
+
+.contact-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--tertiary-color);
+    margin-top: 2rem;
+}
+
+/* ==================================== */
+/* 4. ANIMASI & RESPONSIF               */
+/* ==================================== */
+/* Efek Fade-in saat scroll */
+.reveal {
+    position: relative;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animasi untuk Hero */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Animasi untuk efek glow */
+@keyframes pulse-glow {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(0.9);
+        opacity: 0.6;
+    }
+}
+
+/* GAYA MODAL (POPU-UP) BARU */
+.modal {
+    display: none; /* Sembunyikan secara default */
+    position: fixed; /* Tetap di layar */
+    z-index: 1001; /* Di atas elemen lain */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Aktifkan scroll jika konten terlalu besar */
+    background-color: rgba(0, 0, 0, 0.9); /* Latar belakang semi-transparan */
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    animation: zoomInModal 0.4s ease-in-out;
+}
+
+.modal-close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.modal-header h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.modal-body {
+    padding: 1rem 0;
+}
+
+.modal-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    border: 3px solid var(--primary-color);
+}
+
+.modal-body p {
+    font-size: 1rem;
+    color: #ccc;
+    text-align: center;
+}
+
+.modal-footer {
+    padding-top: 1rem;
+}
+
+.modal-close-btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+}
+
+/* Animasi untuk Modal */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes zoomInModal {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* ==================================== */
+/* 5. MEDIA QUERIES (RESPONSIF)         */
+/* ==================================== */
+
+/* Tablet & Perangkat Menengah (lebar max 992px) */
+@media (max-width: 992px) {
+    /* Tampilkan tombol menu dan sembunyikan daftar nav */
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(11, 12, 16, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transform: translateX(100%);
+        transition: transform 0.4s ease-in-out;
+        z-index: 999;
+    }
+
+    /* Kelas aktif saat menu terbuka */
+    .nav-links.active {
+        transform: translateX(0);
+    }
+    
+    .nav-links a {
+        font-size: 1.5rem;
+        padding: 1rem 0;
+    }
+    
+    /* Hero Section adjustments */
+    .hero {
+        text-align: center;
+        padding: 4rem 1rem;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .hero-text-area {
+        max-width: 100%;
+        text-align: center;
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .hero-image-area {
+        max-width: 80%;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .hero-profile-pic {
+        width: 250px;
+        height: auto;
+        max-width: 100%;
+        animation: none;
+        opacity: 1;
+        transform: none;
+        box-shadow: none;
+    }
+
+    .hero-image-glow {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    /* About Section adjustments */
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text {
+        order: 2;
+    }
+
+    .profile-pic {
+        order: 1;
+    }
+
+    /* Other adjustments */
+    .navbar .container {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+    }
+    
+    .nav-links {
+        margin-top: 0; 
+        gap: 0;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+
+    /* Pengalaman adjustment */
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+    
+}
+
+/* Perangkat Seluler (lebar max 576px) */
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 0.7rem 1.5rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .certificate-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-links {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .contact-item .icon-box {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .contact-item i {
+        font-size: 2rem;
+    }
+    
+    /* Modal adjustment */
+    .modal-content {
+        padding: 1.5rem;
+    }
+    
+    .modal-close {
+        font-size: 1.5rem;
+    }
+    
+    .modal-header h3 {
+        font-size: 1.5rem;
+    }
+}
