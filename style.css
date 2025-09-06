@@ -1,13 +1,10 @@
-/* ==================================== */
-/* 1. VARIABEL & PENGATURAN DASAR       */
-/* ==================================== */
 :root {
-    --primary-color: #d49d9d;      /* Ungu gelap */
-    --secondary-color: #f7a20c;     /* Oranye terang */
-    --tertiary-color: #0b0c10;      /* Hitam gelap */
-    --background-color: #1a1a2e;    /* Biru keunguan gelap */
-    --text-color: #ffffff;          /* Putih */
-    --card-background: #232946;     /* Biru gelap */
+    --primary-color: #d49d9d;     
+    --secondary-color: #f7a20c;    
+    --tertiary-color: #0b0c10;    
+    --background-color: #1a1a2e; 
+    --text-color: #ffffff;       
+    --card-background: #232946;    
 }
 
 * {
@@ -27,9 +24,6 @@ body {
     line-height: 1.6;
 }
 
-/* ==================================== */
-/* GAYA PRELOADER (BARU)                */
-/* ==================================== */
 .preloader {
     position: fixed;
     top: 0;
@@ -57,22 +51,12 @@ body {
     align-items: center;
 }
 
-/* Tambahkan gaya baru untuk logo preloader */
 .preloader-logo {
-    width: 150px; /* Atur ukuran logo sesuai keinginan Anda */
+    width: 150px; 
     height: auto;
     margin-bottom: 1.5rem;
     animation: fadeInLogo 1s ease-in-out;
 }
-
-/* Hapus atau abaikan gaya untuk .preloader-name jika tidak lagi digunakan */
-/* .preloader-name {
-    color: var(--text-color);
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    animation: fadeInName 1s ease-in-out;
-} */
 
 .loading-dots {
     display: flex;
@@ -95,7 +79,6 @@ body {
     animation-delay: 0.4s;
 }
 
-/* Tambahkan keyframes baru untuk logo */
 @keyframes fadeInLogo {
     from { opacity: 0; transform: scale(0.8); }
     to { opacity: 1; transform: scale(1); }
@@ -110,9 +93,6 @@ body {
     }
 }
 
-/* ... Kode CSS lainnya tetap sama ... */
-
-/* ... Kode CSS lainnya tetap sama ... */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -128,9 +108,6 @@ h2 {
     letter-spacing: 2px;
 }
 
-/* ==================================== */
-/* 2. KOMPONEN UI DASAR                 */
-/* ==================================== */
 .btn {
     display: inline-block;
     padding: 0.8rem 2rem;
@@ -163,12 +140,6 @@ h2 {
     border: 2px solid var(--secondary-color);
 }
 
-/* ==================================== */
-/* 3. LAYOUT & SEKSI UTAMA              */
-/* ==================================== */
-/* ... Kode CSS lainnya ... */
-
-/* Navigasi Bar */
 .navbar {
     position: fixed;
     top: 0;
@@ -187,19 +158,10 @@ h2 {
     align-items: center;
 }
 
-/* Hapus atau abaikan gaya untuk .navbar .logo jika tidak lagi digunakan */
-/* .navbar .logo {
-    color: var(--text-color);
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-decoration: none;
-} */
-
-/* Gaya baru untuk logo di navbar */
 .logo-container {
     display: block;
-    height: 65px; /* Atur tinggi container agar logo terlihat rapi */
-    line-height: 1; /* Hapus spasi tambahan */
+    height: 65px; 
+    line-height: 1; 
 }
 
 .navbar-logo {
@@ -222,7 +184,6 @@ h2 {
     z-index: 1001;
 }
 
-/* ... Sisa kode CSS tetap sama ... */
 .nav-links {
     display: flex;
     list-style: none;
@@ -241,7 +202,6 @@ h2 {
     color: var(--secondary-color);
 }
 
-/* Bagian Hero */
 .hero {
     height: 100vh;
     display: flex;
@@ -270,7 +230,7 @@ h2 {
 }
 
 .hero-text-area {
-    flex: 1;
+    flex: 0 0 50%; 
     text-align: left;
     max-width: 50%;
     animation: fadeInLeft 1.5s ease-out forwards;
@@ -283,6 +243,7 @@ h2 {
     margin-bottom: 1rem;
     line-height: 1.2;
     color: var(--text-color);
+    min-height: 2.4em; 
 }
 
 .hero-subtitle {
@@ -299,9 +260,9 @@ h2 {
     animation: typing 2s steps(20, end), blink-caret 0.75s step-end infinite;
 }
 
-/* Area Gambar di Hero */
+
 .hero-image-area {
-    flex: 1;
+    flex: 0 0 50%; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -324,7 +285,6 @@ h2 {
     box-shadow: none;
 }
 
-/* Efek Cahaya di Belakang Foto */
 .hero-image-glow {
     position: absolute;
     width: 90%;
@@ -341,8 +301,6 @@ h2 {
     transform: scale(0.8);
 }
 
-
-/* Bagian Tentang Saya */
 .about {
     background-color: var(--card-background);
 }
@@ -380,7 +338,6 @@ h2 {
     color: var(--secondary-color);
 }
 
-/* Bagian Keahlian */
 .skills {
     background-color: var(--background-color);
 }
@@ -445,7 +402,6 @@ h2 {
     font-weight: 600;
 }
 
-/* Bagian Proyek */
 .projects {
     background-color: var(--background-color);
 }
@@ -520,7 +476,6 @@ h2 {
     gap: 1rem;
 }
 
-/* Bagian Sertifikat */
 .certificates {
     background-color: var(--card-background);
 }
@@ -538,7 +493,7 @@ h2 {
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer; /* Tambahkan ini agar bisa diklik */
+    cursor: pointer; 
 }
 
 .certificate-card:hover {
@@ -587,7 +542,6 @@ h2 {
     margin-right: 0.5rem;
 }
 
-/* BAGIAN PENGALAMAN */
 .experience {
     background-color: var(--background-color);
 }
@@ -662,7 +616,6 @@ h2 {
     font-size: 1.1rem;
 }
 
-/* Bagian Kontak */
 .contact {
     text-align: center;
     background-color: var(--background-color);
@@ -722,7 +675,6 @@ h2 {
     font-weight: 600;
 }
 
-/* Footer */
 footer {
     text-align: center;
     padding: 2rem;
@@ -730,10 +682,6 @@ footer {
     margin-top: 2rem;
 }
 
-/* ==================================== */
-/* 4. ANIMASI & RESPONSIF               */
-/* ==================================== */
-/* Efek Fade-in saat scroll */
 .reveal {
     position: relative;
     opacity: 0;
@@ -746,7 +694,6 @@ footer {
     transform: translateY(0);
 }
 
-/* Animasi untuk Hero */
 @keyframes fadeInLeft {
     from {
         opacity: 0;
@@ -781,7 +728,6 @@ footer {
     }
 }
 
-/* Animasi untuk efek glow */
 @keyframes pulse-glow {
     0% {
         transform: scale(0.9);
@@ -797,17 +743,16 @@ footer {
     }
 }
 
-/* GAYA MODAL (POPU-UP) BARU */
 .modal {
-    display: none; /* Sembunyikan secara default */
-    position: fixed; /* Tetap di layar */
-    z-index: 1001; /* Di atas elemen lain */
+    display: none;
+    position: fixed; 
+    z-index: 1001; 
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /* Aktifkan scroll jika konten terlalu besar */
-    background-color: rgba(0, 0, 0, 0.9); /* Latar belakang semi-transparan */
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(5px);
     animation: fadeIn 0.3s ease-in-out;
 }
@@ -880,7 +825,6 @@ footer {
     font-size: 1rem;
 }
 
-/* Animasi untuk Modal */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -897,14 +841,7 @@ footer {
     }
 }
 
-
-/* ==================================== */
-/* 5. MEDIA QUERIES (RESPONSIF)         */
-/* ==================================== */
-
-/* Tablet & Perangkat Menengah (lebar max 992px) */
 @media (max-width: 992px) {
-    /* Tampilkan tombol menu dan sembunyikan daftar nav */
     .menu-toggle {
         display: block;
     }
@@ -925,7 +862,6 @@ footer {
         z-index: 999;
     }
 
-    /* Kelas aktif saat menu terbuka */
     .nav-links.active {
         transform: translateX(0);
     }
@@ -935,7 +871,6 @@ footer {
         padding: 1rem 0;
     }
     
-    /* Hero Section adjustments */
     .hero {
         text-align: center;
         padding: 4rem 1rem;
@@ -983,7 +918,6 @@ footer {
         font-size: 1rem;
     }
 
-    /* About Section adjustments */
     .about-content {
         flex-direction: column;
         text-align: center;
@@ -997,7 +931,6 @@ footer {
         order: 1;
     }
 
-    /* Other adjustments */
     .navbar .container {
         flex-direction: row;
         justify-content: space-between;
@@ -1013,14 +946,12 @@ footer {
         font-size: 2rem;
     }
 
-    /* Pengalaman adjustment */
     .experience-grid {
         grid-template-columns: 1fr;
     }
     
 }
 
-/* Perangkat Seluler (lebar max 576px) */
 @media (max-width: 576px) {
     .hero-title {
         font-size: 2rem;
@@ -1060,7 +991,6 @@ footer {
         font-size: 2rem;
     }
     
-    /* Modal adjustment */
     .modal-content {
         padding: 1.5rem;
     }
